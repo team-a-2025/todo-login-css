@@ -1,5 +1,5 @@
-
-{
+/* Reset styling */
+* {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
@@ -11,16 +11,18 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100vh;
-  margin: 0;
+  min-height: 100vh;
 }
 
 /* Main container styling */
 main {
   background: linear-gradient(145deg, #ffffff, #d1d9e6);
   border-radius: 16px;
-  box-shadow: 8px 8px 16px rgba(0, 0, 0, 0.2), -8px -8px 16px rgba(255, 255, 255, 0.7);
+  box-shadow: 
+    8px 8px 16px rgba(0, 0, 0, 0.2), 
+    -8px -8px 16px rgba(255, 255, 255, 0.7);
   width: 320px;
+  max-width: 90%;
   text-align: center;
   padding: 30px;
 }
@@ -35,26 +37,61 @@ h2 {
 form {
   display: flex;
   flex-direction: column;
+  gap: 15px;
 }
 
-/* Text input styling */
-input[type="text"] {
+/* Shared input styling */
+input[type="text"], 
+input[type="password"], 
+input[type="submit"] {
   padding: 12px;
-  margin-bottom: 15px;
   border-radius: 8px;
-  border: 1px solid #ccc;
   font-size: 16px;
+  border: 1px solid #ccc;
+  width: 100%; /* 全て同じ幅に揃える */
   background-color: #f3f6fb;
-  box-shadow: inset 3px 3px 5px rgba(0, 0, 0, 0.1), inset -3px -3px 5px rgba(255, 255, 255, 0.7);
-  transition: border-color 0.3s;
+  box-shadow: 
+    inset 3px 3px 5px rgba(0, 0, 0, 0.1), 
+    inset -3px -3px 5px rgba(255, 255, 255, 0.7);
+  transition: 
+    border-color 0.3s, 
+    box-shadow 0.3s, 
+    transform 0.1s, 
+    background-color 0.3s;
 }
 
-input[type="text"]:focus {
+/* Text and password input focus styling */
+input[type="text"]:focus, 
+input[type="password"]:focus {
   border-color: #4CAF50;
   outline: none;
+  box-shadow: 
+    0 0 6px rgba(76, 175, 80, 0.5);
 }
 
-/* Submit button styling */
+/* Submit button specific styling */
+input[type="submit"] {
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+
+input[type="submit"]:hover {
+  background-color: #45a049;
+  transform: scale(1.02); /* ホバーで少し拡大 */
+}
+
+input[type="submit"]:active {
+  transform: scale(0.98); 
+}
+
+/* Output text styling */
+p#output {
+  margin-top: 25px;
+  font-size: 18px;
+  color: #333;
+}
 input[type="submit"] {
   padding: 12px;
   background-color: #4CAF50;
@@ -74,11 +111,4 @@ input[type="submit"]:hover {
 
 input[type="submit"]:active {
   transform: scale(0.98);
-}
-
-/* Output text styling */
-p#output {
-  margin-top: 25px;
-  font-size: 18px;
-  color: #333;
 }
